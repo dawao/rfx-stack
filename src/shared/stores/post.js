@@ -1,6 +1,6 @@
 import { observable, action, computed } from 'mobx';
 import { service } from '@/shared/app';
-import { factory } from '@/seeds/factories/post'; // just for test
+// import { factory } from '@/seeds/factories/post'; // just for test
 import _ from 'lodash';
 
 export default class PostStore {
@@ -61,9 +61,9 @@ export default class PostStore {
   }
 
   create(data = null) {
-    // we use factory() just for test
+    // we use factory() just for test || factory()
     return service('post')
-      .create(data || factory())
+      .create(data)
       .catch(err => console.error(err)); // eslint-disable-line no-console
   }
 

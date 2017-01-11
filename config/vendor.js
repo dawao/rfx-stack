@@ -3,15 +3,12 @@
 */
 
 export default [
-  'animate.css',
-  'bluebird',
   'classnames',
-  'lodash',
   'mobx',
   'mobx-react',
   'mobx-react-form',
   'mobx-react-matchmedia',
-  'material-ui',
+  // 'material-ui',
   'react',
   'react-dom',
   'react-modal',
@@ -21,6 +18,5 @@ export default [
   'react-timeago',
   'rfx-core',
   'validatorjs',
-  'tachyons',
   'socket.io-client',
 ];

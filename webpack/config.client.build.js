@@ -1,5 +1,6 @@
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import ProgressBarPlugin from 'progress-bar-webpack-plugin';
+import LodashModuleReplacementPlugin from 'lodash-webpack-plugin';
 import webpack from 'webpack';
 import path from 'path';
 
@@ -15,10 +16,15 @@ export function loader() {
         plugins: [
           'transform-decorators-legacy',
           'transform-class-properties',
-          'transform-runtime',
+          'transform-runtime', 'lodash',
           'babel-root-import',
         ],
       },
+    },
+    file: {
+      // the "?v=" regex fixes fontawesome issue
+      test: /\.(eot|svg|ttf|woff|woff2)\w*/,
+      loader: 'file-loader?name=[name].[ext]',
     },
     cssModules: {
       loader: ExtractTextPlugin.extract({
@@ -59,6 +65,7 @@ export function config(entry) {
     },
     plugins: [
       new ProgressBarPlugin(),
+      new LodashModuleReplacementPlugin,
       new webpack.optimize.UglifyJsPlugin({
         comments: false,
         sourceMap: true,
