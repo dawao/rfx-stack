@@ -1,11 +1,10 @@
 import { dispatch } from 'rfx-core';
-import validatorjs from 'validatorjs';
 import Form from './_.extend';
 
 class UserForm extends Form {
 
   onSuccess(form) {
-    dispatch('auth.register', form.values())
+    return dispatch('auth.register', form.values())
       .then(() => dispatch('ui.auth.toggleSection', 'signin'))
       .then(() => dispatch('ui.snackBar.open', 'Register Successful.'))
       .then(() => form.clear())
@@ -18,21 +17,27 @@ class UserForm extends Form {
 
 export default
   new UserForm({
-    plugins: {
-      dvr: validatorjs,
-    },
     fields: {
       username: {
         label: 'Username',
         rules: 'required|string|between:5,20',
+        placeholder: 'Insert Username',
       },
       email: {
         label: 'Email',
-        rules: 'required|email|string|between:5,20',
+        rules: 'required|email|string|between:5,50',
+        placeholder: 'Insert Email',
       },
       password: {
         label: 'Password',
         rules: 'required|string|between:5,20',
+        placeholder: 'Insert Password',
+        related: ['passwordConfirm'],
+      },
+      passwordConfirm: {
+        label: 'Confirm Password',
+        rules: 'required|string|between:5,20|same:password',
+        placeholder: 'Insert Confirmation Password',
       },
     },
   });
