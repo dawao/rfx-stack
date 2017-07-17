@@ -1,12 +1,12 @@
 import hooks from 'feathers-hooks';
-
+const { remove } = require('feathers-hooks-common');
 /**
   Hook: after
   Service: post
 */
 export default {
   all: [
-    hooks.remove('__v', '_id'),
+    remove('__v', '_id')
   ],
   find: [],
   get: [],

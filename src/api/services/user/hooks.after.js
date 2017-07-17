@@ -1,4 +1,5 @@
 import hooks from 'feathers-hooks';
+const { remove } = require('feathers-hooks-common');
 
 /**
   Hook: after
@@ -6,7 +7,7 @@ import hooks from 'feathers-hooks';
 */
 export default {
   all: [
-    hooks.remove('__v', 'password'),
+    remove('__v', 'password')
   ],
   find: [
   ],
