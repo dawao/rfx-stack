@@ -5,7 +5,7 @@ import jwt from 'feathers-authentication-jwt';
 import hooks from 'feathers-hooks';
 import rest from 'feathers-rest';
 import socketio from 'feathers-socketio';
-import adapter from 'feathers-mongoose';
+//import adapter from 'feathers-mongoose';
 import errorHandler from 'feathers-errors/handler';
 
 import compression from 'compression';
@@ -23,6 +23,8 @@ import { autoloader } from './autoloader';
 
 import loggerMiddleware from './middleware/logger';
 import notFoundMiddleware from './middleware/notFound';
+
+var adapter = require('feathers-loopback-connector');
 
 setupServer({
   namespace: 'api',

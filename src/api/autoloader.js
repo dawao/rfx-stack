@@ -8,6 +8,11 @@ export function autoloader($service) {
   const ServiceConfig = require(dir + '/config.js').default; // eslint-disable-line
   const ServiceModel = require(dir + '/model.js').default; // eslint-disable-line
 
+  if(this.db.attach){
+    this.db.attach(ServiceModel);
+    //console.log(ServiceModel);
+  }
+    
   // extend the service object with related model
   Object.assign(ServiceConfig.options, { Model: ServiceModel });
 
