@@ -26,7 +26,7 @@ const ItemDetail = observer(({ item }) => (
         {' '}
         { item.title }
       </div>
-      <div className="f5 pt3 gray">ID: { item.uuid }</div>
+      <div className="f5 pt3 gray">UUID: { item.uuid }</div>
     </div>
     <div className="fl w-100 w-40-ns tc tl-ns">
       <p><b>Created at</b>: <TimeAgo date={item.createdAt} /></p>

@@ -2,7 +2,7 @@ import _ from 'lodash';
 import { extendObservable, observable, action, computed } from 'mobx';
 
 import { service } from '@/shared/app';
-import { factory } from '@/seeds/factories/post'; // just for test
+// import { factory } from '@/seeds/factories/post'; // just for test
 
 import postForm, { init as initPostForm } from '@/shared/forms/post';
 
@@ -101,13 +101,13 @@ export default class PostStore {
   }
 
   create(data = null) {
-    // we use factory() just for test
+    // we use factory() just for test /*|| factory()*/
     return service('post')
-      .create(data || factory())
+      .create(data)
       .catch(err => console.error(err)); // eslint-disable-line no-console
   }
 
-  update(data = {}, id = data.uuid) {
+  update(data = {}, id = data.id) {
     return service('post')
       .patch(id, data)
       .catch(err => console.error(err)); // eslint-disable-line no-console

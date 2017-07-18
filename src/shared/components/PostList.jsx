@@ -27,7 +27,7 @@ const ItemsList = observer(({ items }) => (
             } {item.title}
           </div>
           <div className="f5 pt3 gray">
-            ID: <Link to={`/messages/${item.uuid}`}>{item.uuid}</Link>
+            ID: <Link to={`/messages/${item.id}`}>{item.id}</Link>
           </div>
         </div>
         <div className="fl w-100 w-40-ns tc tl-ns">

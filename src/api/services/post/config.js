@@ -2,7 +2,7 @@ export default {
   model: 'post',
   namespace: '/post',
   options: {
-    id: 'uuid',
+    id: 'id',
     paginate: {
       default: 25,
       max: 50,

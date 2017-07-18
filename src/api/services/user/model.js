@@ -15,7 +15,8 @@ var ModelBuilder = require('loopback-datasource-juggler').ModelBuilder;
 var modelBuilder = new ModelBuilder();
 // define models
 export default modelBuilder.define('users', {
-  uuid: { type: String, id: true, unique: true },
+  id: { type: String, id:true, unique: true },
+  uuid: { type: String, unique: true },
   email: { type: String, required: true, unique: true },
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true },
