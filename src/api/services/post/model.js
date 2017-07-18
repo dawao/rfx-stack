@@ -16,12 +16,14 @@ var ModelBuilder = require('loopback-datasource-juggler').ModelBuilder;
 var modelBuilder = new ModelBuilder();
 // define models
 export default modelBuilder.define('posts', {
-  uuid: { type: String, id: true, required: true, unique: true },
-  title: {type: String, length: 255},
+  uuid: { type: String, id: true, unique: true },
+  title: {type: String, length: 255, required: true},
   //content: {type: ModelBuilder.Text},
-  // date: {type: Date, default: function() {
-  //   return new Date();
-  // }},
-  timestamp: {type: Number, default: Date.now},
+  createdAt: {type: Date, default: function() {
+    return new Date();
+  }},
+  updatedAt: { type: Date, default: function() {
+    return new Date();
+  }},
   completed: {type: Boolean, default: false, index: true}
 });
